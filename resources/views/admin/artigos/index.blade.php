@@ -14,8 +14,8 @@
 
     <painel titulo="Lista de Artigos">
         <migalhas v-bind:lista="{{ $listaMigalhas }}"></migalhas>
-        <tabela-lista v-bind:titulos="['#', 'Títulos', 'Descrição', 'Data']" v-bind:itens="{{ json_encode($listaArtigos) }}"
-            ordem="asc" ordemcol="1" criar="#criar" detalhe="/admin/artigos/" editar="/admin/artigos/" deletar="/admin/artigos/"
+        <tabela-lista v-bind:titulos="['#', 'Títulos', 'Descrição', 'Autor', 'Data']" v-bind:itens="{{ json_encode($listaArtigos) }}"
+            ordem="desc" ordemcol="0" criar="#criar" detalhe="/admin/artigos/" editar="/admin/artigos/" deletar="/admin/artigos/"
             token="{{ csrf_token() }}" modal="sim">
         </tabela-lista>
         <div align="center">
@@ -39,9 +39,9 @@
         </div>
 
         <div class="form-group">
-            <label for="conteudo">Conteúdo</label>
-            <textarea class="form-control" id="conteudo" placeholder="Conteúdo"
-                name="conteudo">{{ old('conteudo') }}</textarea>
+            <label for="addConteudo">Conteúdo</label>
+            <textarea class="form-control" id="addConteudo" placeholder="Conteúdo"
+                 name="conteudo">{{ old('conteudo') }}</textarea>
         </div>
 
         <div class="form-group">

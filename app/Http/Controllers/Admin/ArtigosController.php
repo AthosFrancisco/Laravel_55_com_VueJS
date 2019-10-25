@@ -17,11 +17,17 @@ class ArtigosController extends Controller
     public function index()
     {
         $listaMigalhas = json_encode([
-            ["titulo" => "Home", "url" => route("home")],
+            ["titulo" => "Admin", "url" => route("admin")],
             ["titulo" => "Lista de Artigos", "url" => ""]
         ]);
 
-        $listaArtigos = Artigo::select('id', 'titulo', 'descricao', 'data')->paginate(2);
+        // $listaArtigos = Artigo::select('id', 'titulo', 'descricao', 'user_id', 'data')->paginate(2);
+
+        // foreach ($listaArtigos as $key => $value) {
+        //     $value->user_id = $value->user()->first()->name;
+        // }
+
+        $listaArtigos = Artigo::listaArtigo(6);
 
         return view("admin.artigos.index", compact("listaMigalhas", "listaArtigos"));
     }
