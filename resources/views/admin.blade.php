@@ -6,30 +6,30 @@
         <migalhas v-bind:lista="{{ $listaMigalhas }}"></migalhas>
 
         <div class="row">
-            <div class="col-md-4 col-xs-4">
-                <caixa qtd="{{ $artigos }}" titulo="Artigos" icone="fa fa-shopping-cart" cor="orange"
-                    url="{{ route('artigos.index') }}">
-
-                </caixa>
-            </div>
-            <div class="col-md-4 col-xs-4">
-                <caixa qtd="{{ $usuarios }}" titulo="Usuários" icone="ion-person-stalker" cor="red"
-                    url="{{ route('usuarios.index') }}">
-
-                </caixa>
-            </div>
-            <div class="col-md-4 col-xs-4">
-                <caixa qtd="{{ $autores }}" titulo="Autores" icone="ion-person" cor="green"
-                    url="{{ route('autores.index') }}">
-
-                </caixa>
-            </div>
-            <div class="col-md-4 col-xs-4">
-                <caixa qtd="{{ $admins }}" titulo="Administradores" icone="ion-person" cor="green"
-                    url="{{ route('adm.index') }}">
-
-                </caixa>
-            </div>
+            @can('ehAutor')    
+                <div class="col-md-4 col-xs-4">
+                    <caixa qtd="{{ $artigos }}" titulo="Artigos" icone="fa fa-shopping-cart" cor="orange"
+                        url="{{ route('artigos.index') }}">
+                    </caixa>
+                </div>
+            @endcan
+            @can('ehAdmin')
+                <div class="col-md-4 col-xs-4">
+                    <caixa qtd="{{ $usuarios }}" titulo="Usuários" icone="ion-person-stalker" cor="red"
+                        url="{{ route('usuarios.index') }}">
+                    </caixa>
+                </div>
+                <div class="col-md-4 col-xs-4">
+                    <caixa qtd="{{ $autores }}" titulo="Autores" icone="ion-person" cor="green"
+                        url="{{ route('autores.index') }}">
+                    </caixa>
+                </div>
+                <div class="col-md-4 col-xs-4">
+                    <caixa qtd="{{ $admins }}" titulo="Administradores" icone="ion-person" cor="green"
+                        url="{{ route('adm.index') }}">
+                    </caixa>
+                </div>
+            @endcan
     </painel>
 </pagina>
 
